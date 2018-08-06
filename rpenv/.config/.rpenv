@@ -1,0 +1,3 @@
+ci=http://ag-webjs001.ci.useast2.rentpath.com/ops/env/environment.cfg
+qa=http://ag-webjs001.qa.useast2.rentpath.com/ops/env/environment.cfg
+prod=http://ag-webjs001.useast2.rentpath.com/ops/env/environment.cfg
