@@ -11,6 +11,11 @@
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
+(add-to-list 'package-archives
+             '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+
+(add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
+
 ;; (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
 ;;                          ("marmalade" . "http://marmalade-repo.org/packages/")
 ;;                          ("melpa" . "http://melpa-stable.milkbox.net/packages/")))
@@ -26,6 +31,14 @@
 ;; makes them available for download.
 (when (not package-archive-contents)
   (package-refresh-contents))
+
+;; Define the following variables to remove the compile-log warnings
+;; when defining ido-ubiquitous
+(defvar ido-cur-item nil)
+(defvar ido-default-item nil)
+(defvar ido-cur-list nil)
+(defvar predicate nil)
+(defvar inherit-input-method nil)
 
 ;; The packages you want installed. You can also install these
 ;; manually with M-x package-install
@@ -130,32 +143,3 @@
 ;; Langauage-specific
 (load "setup-clojure.el")
 (load "setup-js.el")
-
-;; elm stuff
-(require 'elm-mode)
-
-(require 'flycheck)
-
-(with-eval-after-load 'flycheck
-       '(add-hook 'flycheck-mode-hook #'flycheck-elm-setup))
-
-
-(with-eval-after-load 'company
-  (add-to-list 'company-backends 'company-elm))
-(add-hook 'elm-mode-hook #'elm-oracle-setup-completion)
-(setq elm-format-on-save t)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(coffee-tab-width 2)
- '(elm-format-on-save t)
- '(elm-tags-on-save t)
- '(global-auto-revert-mode t))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

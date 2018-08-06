@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/ropierce/.oh-my-zsh
+export ZSH=/Users/rpierce/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -57,13 +57,19 @@ plugins=(git)
 #export GOPATH=$HOME/Workspaces/Go_Workspace
 #export PATH=$PATH:$GOPATH/bin
 #export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
-export PATH=$PATH:/usr/local/bin:/Users/ropierce/bin
+export PATH=$PATH:/usr/local/bin:/Users/rpierce/bin
+
+# Add Anaconda (for Jupyter) to path
+export PATH=$PATH:/Users/rpierce/anaconda3/bin
+
+# Add ASDF (for Elixir) to path
+export PATH=$PATH:/Users/rpierce/.asdf/bin
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 
-eval $(docker-machine env default)
+#eval $(docker-machine env default)
 
 
 # You may need to manually set your language environment
@@ -96,3 +102,7 @@ export PATH=$PATH:/usr/local/sbin
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+. $HOME/.asdf/asdf.sh
+
+export GOPATH=$HOME/Workspaces/Go_Workspace
